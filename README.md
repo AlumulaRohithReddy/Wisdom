@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+This React application fetches and displays a list of users from an external API, implements a dark and light theme toggle, enables sorting and searching functionalities, and provides detailed views of individual user information. It uses 'react-router-dom' for routing, 'Context API' for global state management, and React functional and class components for UI rendering.
+Main Components:
+App.js:
+Key Functionalities:
+  - Fetches user data from an external API (`https://jsonplaceholder.typicode.com/users`).
+  - Manages global state like theme, search input, and user data via the 'Context API'.
+  - Routes between 'Home', 'UserDetails', and 'NotFound' components.
+State Variables:
+  - isDarkTheme: Boolean for toggling between dark and light themes.
+  - userlist and initail: Arrays to store user data for filtering and restoring purposes.
+  - searchinput: String for search functionality.
+  - activeOptionId: Tracks the sorting order (A-Z, Z-A, or None).
+  - userdetails: Stores detailed information about a single user.
+Helper Methods:
+  - users(): Fetches and formats the user data for display.
+  - toggleTheme(): Toggles between light and dark themes.
+  - onsearch(): Filters the user list based on the search input.
+  - onsort(): Sorts users based on the selected option (A-Z, Z-A, None).
+  - onchangeinput(): Updates 'searchinput' and triggers filtering.
+  - changeSortby(): Updates sorting preference and triggers sorting.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Global State Management
+Context.js
+- Provides global access to key states and methods via 'Context.Consumer' or 'useContext':
+  - Theme toggle.
+  - User data filtering and sorting.
+  - Access to user details for detailed views.
+Core UI Components
+Home Component:
+Purpose: Displays the list of users with options for searching, sorting, and theme toggling.
+  Features:
+  - Renders user cards from the 'userlist'.
+  - Implements search functionality tied to 'onsearch' and 'onchangeinput'.
+  - Adjusts layout and styles dynamically based on 'isDarkTheme'.
+Navbar Component:
+Purpose: A header with theme toggle, search input, and sort options.
+- Features:
+  - Toggles between dark and light themes using 'toggleTheme'.
+  - Handles search input changes.
+  - Dropdown menu for sorting options (A-Z, Z-A, None).
+  - Dynamically styled based on 'isDarkTheme'.
+UserCard Component:
+Purpose: Displays a single user’s summary (name, email, city) and links to their details.
+  Features:
+  - Dynamically adjusts its style based on 'isDarkTheme'.
+  - Navigates to `/users/:id` on click.
+UserDetails Component:
+  Purpose: Displays detailed information about a single user, including:
+  - Personal info: Name, username, email, phone.
+  - Address: Street, suite, city, zipcode.
+  - Geo-coordinates: Latitude, longitude.
+  - Company details: Name, tagline, and business area.
+Implementation:
+  - Used 'useParams' from 'react-router-dom' to fetch the user ID.
+  - Fetches user details using the 'id' and updates local states.
+  - Renders sections for user info, address, geography, and company details.
+NotFound Component:
+- Purpose: Displays a message and image when no users are found or the route doesn’t match.
+- Features:
+  - Light and dark themes for styling.
+  - Encourages users to search with other names.
+API Integration:
+- Data is fetched from `https://jsonplaceholder.typicode.com/users`.
+- Endpoints:
+  - `/users`: List of all users.
+  - `/users/:id`: Details of a specific user.
