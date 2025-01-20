@@ -1,0 +1,124 @@
+.user-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffe4e6;
+    height: 150px;
+    width: 300px;
+    margin: 5px;
+    border-radius: 10px;
+    padding:10px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+.user-card:hover {
+    transform: scale(1.05);
+  }
+.link{
+    text-decoration: none;
+}
+.dark-user-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #b6acac;
+    width: 300px;
+    height: 150px;
+    margin: 5px;
+    border-radius: 10px;
+    padding:10px;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+.dark-user-card:hover {
+    transform: scale(1.05);
+  }
+.dark-heading{
+    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    color: black;
+}
+.dark-city-text{
+    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    color: black;
+}
+.dark-email-text{
+    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    color: black;
+}
+.heading{
+    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    color: #000000;
+}
+.city-text{
+    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    color: #000000;
+}
+.email-text{
+    font-size: 20px;
+    font-family: 'Bree Serif';
+    font-weight: normal;
+    color: #000000;
+}
+.dark-Bold{
+    font-size: 25px;
+    font-family: 'Bree Serif';
+    font-weight: Bold;
+    color: #000000;
+    text-decoration: underline;
+}
+.Bold{
+    font-size: 25px;
+    font-family: 'Bree Serif';
+    font-weight: Bold;
+    color: black;
+    text-decoration: underline;
+}
+@media (max-width:767px){
+    .user-card{
+      width: auto;
+    }
+    .dark-user-card{
+        width: auto;
+    }
+    .email-text{
+        font-size: 15px;
+    }
+    .Bold{
+        font-size: 15px;
+    }
+    .dark-Bold{
+        font-size: 15px;
+    }
+    .city-text{
+        font-size: 15px;
+    }
+    .heading{
+        font-size: 15px;
+    }
+    .dark-email-text{
+        font-size: 15px;
+    }
+    .dark-city-text{
+        font-size: 15px;
+    }
+    .dark-heading{
+        font-size: 15px;
+    }
+    .dark-user-card{
+        font-size: 15px;
+    }
+  }
